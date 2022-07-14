@@ -1,4 +1,4 @@
-package com.yumyapps.jwt.models;
+package com.yumyapps.jwt.models.http;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

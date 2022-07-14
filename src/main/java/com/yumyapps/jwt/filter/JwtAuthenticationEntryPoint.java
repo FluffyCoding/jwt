@@ -1,7 +1,7 @@
 package com.yumyapps.jwt.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.yumyapps.jwt.models.HttpResponse;
+import com.yumyapps.jwt.models.http.HttpResponse;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.Http403ForbiddenEntryPoint;
 import org.springframework.stereotype.Component;

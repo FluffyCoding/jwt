@@ -7,7 +7,7 @@ import com.yumyapps.jwt.exception.domain.NotAnImageFileException;
 import com.yumyapps.jwt.exception.domain.UserNotFoundException;
 import com.yumyapps.jwt.exception.domain.UsernameExistException;
 import com.yumyapps.jwt.jwtutil.JwtTokenProvider;
-import com.yumyapps.jwt.models.HttpResponse;
+import com.yumyapps.jwt.models.http.HttpResponse;
 import com.yumyapps.jwt.models.User;
 import com.yumyapps.jwt.security.UserPrincipal;
 import com.yumyapps.jwt.service.UserService;
@@ -20,6 +20,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
@@ -65,7 +66,7 @@ public class UserResource extends ExceptionHandling {
     }
 
     @PostMapping(path = "/register")
-    public ResponseEntity<User> registerUser(@RequestBody User user) throws UserNotFoundException, EmailExistException, UsernameExistException {
+    public ResponseEntity<User> registerUser(@Valid @RequestBody User user) throws UserNotFoundException, EmailExistException, UsernameExistException {
         User registeredUser = userService.register(user.getFirstName(), user.getLastName(), user.getUsername(), user.getEmail());
         return new ResponseEntity<>(registeredUser, OK);
 
